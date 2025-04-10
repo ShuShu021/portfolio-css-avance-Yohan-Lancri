@@ -1,37 +1,32 @@
 footer {
-    @include gradient-background(270deg, $primary-color, $secondary-color);
-    animation: gradientMove 10s ease infinite, slideInUp 1.2s ease-out both;
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    font-family: $font-body;
-    
-    p {
-      margin: 0.5rem 0;
-      font-size: 0.9rem;
-    }
-    
-    .reseaux {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      
-      a {
-        transition: transform 0.3s ease;
-        
-        svg {
-          transition: fill 0.3s ease, filter 0.3s ease;
-        }
-        
-        &:hover {
-          transform: scale(1.2);
-          
-          svg {
-            fill: $secondary-color;
-            filter: drop-shadow(0 0 5px rgba($secondary-color, 0.5));
-          }
-        }
-      }
-    }
-  }
+  background:  conic-gradient(from 200deg, #7a2048, #408ec6, #19415d, #7a2048);
+  background-size: 400% 400%;
+  animation: lightningGradient 8s ease infinite, flipInY 1s ease-out both;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+footer p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+footer .reseaux {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+footer .reseaux a {
+  transition: transform 0.3s ease;
+}
+footer .reseaux a svg {
+  transition: fill 0.3s ease, filter 0.3s ease;
+}
+footer .reseaux a:hover {
+  transform: scale(1.2);
+}
+footer .reseaux a:hover svg {
+  fill: #6c5ce7;
+  filter: drop-shadow(0 0 5px rgba(108, 92, 231, 0.5));
+}
