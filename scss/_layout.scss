@@ -1,0 +1,224 @@
+// Hero section
+#hero {
+  @include gradient-background(135deg, $primary-color, $secondary-color);
+  @include section-padding;
+  color: white;
+
+  h1 {
+    font-family: $font-title;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+
+    .highlight {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+      display: inline-block;
+      transform: rotate(-2deg);
+    }
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn {
+    background-color: white;
+    color: $primary-color;
+    @include button-style;
+    display: inline-block;
+
+    &:hover {
+      background-color: $background-color;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Projects section
+#projets {
+  padding: 4rem 2rem;
+  background-color: $background-color;
+  text-align: center;
+
+  h2 {
+    @include section-title;
+    color: $secondary-color;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: $primary-color;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .grille-projets {
+    @include grid-layout;
+    perspective: 1000px;
+  }
+
+  .carte-projet {
+    @include card-base;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, $primary-color, $secondary-color);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    &:hover {
+      animation: cardHover 0.6s forwards;
+      background-color: lighten($background-color, 2%);
+
+      &::before {
+        transform: scaleX(1);
+      }
+
+      h3 {
+        transform: translateX(5px);
+        color: $secondary-color;
+      }
+
+      .projet-tags span {
+        animation: tagPop 0.4s forwards;
+        background-color: $secondary-color;
+        color: white;
+      }
+    }
+
+    &:nth-child(2):hover {
+      animation: cardGlow 2s infinite alternate;
+      transform: translateY(-10px);
+    }
+
+    &:nth-child(3):hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    &.carte-hover {
+      z-index: 10;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform: translateY(-15px) rotateX(5deg);
+    }
+
+    h3 {
+      color: $primary-color;
+      font-family: $font-title;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    p {
+      font-family: $font-body;
+      color: $text-color;
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .projet-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: auto; // Pousse les tags vers le bas
+
+      span {
+        background-color: #f0f0f0;
+        color: $secondary-color;
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        display: inline-block;
+        transition: all 0.3s ease;
+
+        &:nth-child(2) {
+          animation-delay: 0.1s;
+        }
+      }
+    }
+  }
+}
+
+// Contact section
+#contact {
+  @include gradient-background(135deg, $secondary-color, $primary-color);
+  @include section-padding;
+  color: white;
+
+  h2 {
+    @include section-title;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-contact {
+    background-color: white;
+    color: $primary-color;
+    @include button-style;
+    display: inline-block;
+
+    &:hover {
+      background-color: $background-color;
+      color: $secondary-color;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $tablet) {
+  #hero,
+  #contact {
+    padding: 3rem 1.5rem;
+  }
+
+  #projets {
+    padding: 3rem 1.5rem;
+
+    .grille-projets {
+      gap: 1.5rem;
+    }
+
+    h2::after {
+      width: 40px;
+    }
+  }
+}
+
+.card,
+.box,
+.section,
+.button {
+  border-radius: 1rem;
+}

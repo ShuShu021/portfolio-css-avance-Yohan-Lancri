@@ -1,0 +1,137 @@
+// Pop-in animation
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Fade-in-up animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Slide-in-up animation
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Gradient movement animation
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Card hover animation
+@keyframes cardHover {
+  0% {
+    transform: translateY(0) rotate(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: translateY(-10px) rotate(0);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Card flip animation
+@keyframes cardFlip {
+  0% {
+    transform: translateY(0) rotateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(4deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: translateY(-5px) rotateY(0);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Card glow animation
+@keyframes cardGlow {
+  0% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 5px 25px rgba($secondary-color, 0.4);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+  }
+}
+
+// Tag pop animation
+@keyframes tagPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+// Apply animations to sections
+#hero {
+  animation: pop-in 1s ease-out both;
+}
+
+.carte-projet {
+  animation: fadeInUp 0.8s ease both;
+  animation-delay: calc(var(--index, 0) * 0.1s);
+}
+
+.carte-parcours {
+  animation: fadeInUp 0.8s ease both;
+  animation-delay: calc(var(--index, 0) * 0.1s + 0.2s);
+}
+
+#contact {
+  animation: slideInUp 1s ease-out both;
+}
+
+// Zoom in animation for parcours cards
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+}

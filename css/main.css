@@ -1,0 +1,729 @@
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes rotateIn {
+  from {
+    transform: rotate(-15deg) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes lightningGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+@keyframes flipInY {
+  0% {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+@keyframes gradientPulse {
+  0%, 100% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 110% 110%;
+  }
+}
+@keyframes slideUpSmooth {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes cardHover {
+  0% {
+    transform: translateY(0) rotate(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: translateY(-10px) rotate(0);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+@keyframes cardFlip {
+  0% {
+    transform: translateY(0) rotateY(0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(4deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: translateY(-5px) rotateY(0);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+@keyframes cardGlow {
+  0% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 5px 25px rgba(108, 92, 231, 0.4);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+  }
+}
+@keyframes tagPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+#hero {
+  animation: pop-in 1s ease-out both;
+}
+
+.carte-projet {
+  animation: rotateIn 0.8s ease both;
+  animation-delay: calc(var(--index, 0) * 0.1s);
+}
+
+.carte-parcours {
+  animation: rotateIn 0.8s ease both;
+  animation-delay: calc(var(--index, 0) * 0.1s + 0.2s);
+}
+
+#contact {
+  animation: slideInUp 1s ease-out both;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+header {
+  background-color: #1e2761;
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+header .logo {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+header nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+header nav ul li a:hover {
+  opacity: 0.9;
+}
+header nav ul li a:hover::after {
+  width: 100%;
+}
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  header nav ul {
+    gap: 1rem;
+  }
+}
+
+#hero {
+  background: url(https://static.yellowimages.com/wp-content/uploads/2018/07/32574-01_cover-5b60a8c7695ec.jpg);
+  background-size: 70%, 90%;
+  padding: 5rem 2rem;
+  text-align: center;
+  color: black;
+}
+#hero h1 {
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+#hero h1 .highlight {
+  color: #000000;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+#hero p {
+  font-family: "Open Sans", sans-serif;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#hero .btn {
+  background-color: white;
+  color: #433d3d;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+#hero .btn:hover {
+  background-color: #fff9f0;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#projets {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  text-align: center;
+}
+#projets h2 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #000000;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+#projets h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: #858585;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.langage {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.langage img {
+  width: 100px;
+  margin-left: 10px;
+}
+#projets .grille-projets {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+#projets .carte-projet {
+  background: #79a7d3;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease,
+  box-shadow 0.3s ease, background-color 0.3s ease;
+  text-align: left;
+  height: 350px;
+  display: grid;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+#projets .carte-projet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #408ec6, #7a2048);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+#projets .carte-projet:hover {
+  animation: cardHover 0.6s forwards;
+  background-color: #6883bc;
+}
+#projets .carte-projet:hover::before {
+  transform: scaleX(1);
+}
+#projets .carte-projet:hover h3 {
+  transform: translateX(5px);
+  color: #1868ae;
+}
+
+#projets .carte-projet:nth-child(2):hover {
+  animation: cardGlow 2s infinite alternate;
+  transform: translateY(-10px);
+}
+#projets .carte-projet:nth-child(3):hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+#projets .carte-projet.carte-hover {
+  z-index: 10;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateY(-15px) rotateX(5deg);
+}
+#projets .carte-projet h3 {
+  color: #1868ae;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+#projets .carte-projet p {
+  font-family: "Comic Sans MS", cursive;
+  color: #2d3436;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+#contact {
+  background: linear-gradient(135deg, #408ec6, #7a2048);
+  background-size: 400% 400%;
+  padding: 5rem 2rem;
+  text-align: center;
+  color: white;
+}
+#contact h2 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+#contact p {
+  font-family: "Open Sans", sans-serif;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#contact .btn-contact {
+  background-color: white;
+  color: #ff6f61;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+#contact .btn-contact:hover {
+  background-color: #fff9f0;
+  color: #848484;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+#contact .contact-me img {
+  width: 100px;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  #hero,
+  #contact {
+    padding: 3rem 1.5rem;
+  }
+  #projets {
+    padding: 3rem 1.5rem;
+  }
+  #projets .grille-projets {
+    gap: 1.5rem;
+  }
+  #projets h2::after {
+    width: 40px;
+  }
+}
+#parcours {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f0f2fd, #e6e9ff);
+  text-align: center;
+}
+#parcours h2 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #6c5ce7;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+#parcours h2::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: #7a2048;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.parcours-container {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.parcours-colonne {
+  flex: flex;
+  min-width: 300px;
+  padding: 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.parcours-colonne.experiences {
+  background: linear-gradient(
+    135deg,
+    #408ec6,
+    #7a2048,
+    #1e2761
+  );
+  border-left: 4px solid #408ec6;
+}
+.parcours-colonne.experiences-details {
+  padding: 200px; 
+  width: 700px;
+  background: linear-gradient(
+    135deg,
+    #1e2761,
+    #7a2048,
+    #408ec6
+    
+  );
+  border-left: 4px solid #19415d;
+  margin-top: 30px;
+}
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding-top: 20%;
+  font-family: sans-serif;
+}
+.video-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  border-radius: 15px;
+} 
+.box-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.box-content-link {
+  position: relative;
+  color: white;
+  text-align: bottom;
+  height: 100%;
+  flex-direction: column;
+}
+.box-content-link a {
+  color: white
+}
+.parcours-colonne.formations {
+  background: linear-gradient(
+    135deg,
+    #1e2761,
+    #7a2048,
+    #408ec6
+    
+  );
+  border-left: 4px solid #19415d;
+}
+.parcours-colonne.formations-details {
+  background: linear-gradient(
+    135deg,
+    #408ec6,
+    #7a2048,
+    #1e2761
+  );
+  border-left: 4px solid #408ec6;
+  margin-top: 20px; 
+}
+.parcours-colonne:hover {
+  transform: translateY(-5px);
+}
+
+.parcours-colonne.experiences:hover .carte-parcours {
+  animation: zoomIn 0.4s forwards;
+}
+
+.parcours-colonne.formations:hover .carte-parcours {
+  animation: zoomIn 0.4s forwards;
+}
+
+.parcours-colonne.experiences:hover .carte-parcours:nth-child(2),
+.parcours-colonne.formations:hover .carte-parcours:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.parcours-colonne.experiences:hover .carte-parcours h4,
+.parcours-colonne.formations:hover .carte-parcours h4 {
+  transform: translateX(5px);
+}
+
+.parcours-colonne.experiences:hover .carte-parcours .date {
+  transform: scale(1.05);
+  background-color: rgba(255, 111, 97, 0.2);
+}
+
+.parcours-colonne.formations:hover .carte-parcours .date {
+  transform: scale(1.05);
+  background-color: rgba(108, 92, 231, 0.2);
+}
+
+.colonne-titre {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+}
+
+.experiences .colonne-titre {
+  color: #ff6f61;
+}
+
+.formations .colonne-titre {
+  color: #6c5ce7;
+}
+
+.carte-parcours {
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+  opacity: 1;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: calc(var(--index, 0) * 0.2s + 0.3s);
+}
+.carte-parcours:last-child {
+  margin-bottom: 0;
+}
+.carte-parcours .carte-contenu {
+  padding: 1.5rem;
+  text-align: left;
+}
+.carte-parcours h4 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  transition: transform 0.3s ease;
+}
+.carte-parcours h5 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #555;
+}
+.carte-parcours p {
+  font-family: "Open Sans", sans-serif;
+  color: #2d3436;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.carte-parcours .date {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.experiences .carte-parcours h4 {
+  color: #ff6f61;
+}
+.experiences .carte-parcours .date {
+  background-color: rgba(255, 111, 97, 0.1);
+  color: #ff6f61;
+}
+
+.formations .carte-parcours h4 {
+  color: #6c5ce7;
+}
+.formations .carte-parcours .date {
+  background-color: rgba(108, 92, 231, 0.1);
+  color: #6c5ce7;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+@media (max-width: 768px) {
+  .parcours-container {
+    flex-direction: column;
+  }
+  .parcours-colonne {
+    width: 100%;
+  }
+  .parcours-colonne + .parcours-colonne {
+    margin-top: 2rem;
+  }
+}
+footer {
+  background:  conic-gradient(from 200deg, #7a2048, #408ec6, #19415d, #7a2048);
+  background-size: 400% 400%;
+  animation: lightningGradient 8s ease infinite, flipInY 1s ease-out both;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+footer p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+footer .reseaux {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+footer .reseaux a {
+  transition: transform 0.3s ease;
+}
+footer .reseaux a svg {
+  transition: fill 0.3s ease, filter 0.3s ease;
+}
+footer .reseaux a:hover {
+  transform: scale(1.2);
+}
+footer .reseaux a:hover svg {
+  fill: #6c5ce7;
+  filter: drop-shadow(0 0 5px rgba(108, 92, 231, 0.5));
+}

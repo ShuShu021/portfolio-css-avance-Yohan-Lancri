@@ -1,0 +1,226 @@
+// Section Parcours (Expérience et Formation) - Version corrigée
+#parcours {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f0f2fd, #e6e9ff);
+  text-align: center;
+
+  h2 {
+    @include section-title;
+    color: $secondary-color;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: $primary-color;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.parcours-container {
+  display: grid;
+  flex-direction: column;
+  max-width: 1200px;
+  gap: 3rem;
+}
+
+.parcours-colonne {
+  flex: 1;
+  min-width: 300px;
+  padding: 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative; 
+
+  &.experiences {
+    background: linear-gradient(
+      135deg,
+      rgba($primary-color, 0.1),
+      rgba($primary-color, 0.2)
+    );
+    border-left: 4px solid $primary-color;
+  }
+
+  &.formations {
+    background: linear-gradient(
+      135deg,
+      rgba($secondary-color, 0.1),
+      rgba($secondary-color, 0.2)
+    );
+    border-left: 4px solid $secondary-color;
+  }
+
+  &:hover {
+    transform: translateY(-5px); 
+  }
+}
+
+
+.parcours-colonne.experiences:hover .carte-parcours {
+  animation: zoomIn 0.4s forwards;
+}
+
+.parcours-colonne.formations:hover .carte-parcours {
+  animation: zoomIn 0.4s forwards;
+}
+
+// Délai pour les cartes suivantes
+.parcours-colonne.experiences:hover .carte-parcours:nth-child(2),
+.parcours-colonne.formations:hover .carte-parcours:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+// Effet sur les titres
+.parcours-colonne.experiences:hover .carte-parcours h4,
+.parcours-colonne.formations:hover .carte-parcours h4 {
+  transform: translateX(5px);
+}
+
+// Effet sur les dates
+.parcours-colonne.experiences:hover .carte-parcours .date {
+  transform: scale(1.05);
+  background-color: rgba($primary-color, 0.2);
+}
+
+.parcours-colonne.formations:hover .carte-parcours .date {
+  transform: scale(1.05);
+  background-color: rgba($secondary-color, 0.2);
+}
+
+.colonne-titre {
+  font-family: $font-title;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+}
+
+.experiences .colonne-titre {
+  color: $primary-color;
+}
+
+.formations .colonne-titre {
+  color: $secondary-color;
+}
+
+.carte-parcours {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  }
+
+  .carte-contenu h4 {
+    color: #4da6ff;
+  }
+
+  .date {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+}
+
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .carte-contenu {
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  h4 {
+    font-family: $font-title;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    transition: transform 0.3s ease;
+  }
+
+  h5 {
+    font-family: $font-body;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+
+  p {
+    font-family: $font-body;
+    color: $text-color;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .date {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+}
+
+.experiences .carte-parcours {
+  h4 {
+    color: $primary-color;
+  }
+
+  .date {
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+}
+
+.formations .carte-parcours {
+  h4 {
+    color: $secondary-color;
+  }
+
+  .date {
+    background-color: rgba($secondary-color, 0.1);
+    color: $secondary-color;
+  }
+}
+
+// Animation de zoom au survol
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Responsive
+@media (max-width: $tablet) {
+  .parcours-container {
+    flex-direction: column;
+  }
+
+  .parcours-colonne {
+    width: 100%;
+
+    & + .parcours-colonne {
+      margin-top: 2rem;
+    }
+  }
+}
