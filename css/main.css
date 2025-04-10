@@ -198,6 +198,14 @@ header nav ul li a {
   transition: opacity 0.3s ease;
   position: relative;
 }
+.cat {
+  display: flex;
+  position: relative;
+  gap: 200px;
+}
+.cat img{
+  width: 70px;
+}
 header nav ul li a::after {
   content: "";
   position: absolute;
@@ -695,6 +703,57 @@ header nav ul li a:hover::after {
     margin-top: 2rem;
   }
 }
+.game-section {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f0f0f0;
+  border-radius: 1rem;
+  margin: 2rem auto;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+#tic-tac-toe .board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+#tic-tac-toe .cell {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border: 2px solid #333;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#tic-tac-toe .cell:hover {
+  background-color: #e0e0e0;
+}
+
+#game-status {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+#tic-tac-toe button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
 footer {
   background:  conic-gradient(from 200deg, #7a2048, #408ec6, #19415d, #7a2048);
   background-size: 400% 400%;
