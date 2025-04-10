@@ -154,3 +154,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const chat = document.getElementById("chat");
+
+    function moveChatRandomly() {
+      const maxX = window.innerWidth - chat.offsetWidth;
+      const maxY = window.innerHeight - chat.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      chat.style.left = `${randomX}px`;
+      chat.style.top = `${randomY}px`;
+    }
+
+    chat.addEventListener("mouseenter", moveChatRandomly);
+
+    // Position initiale
+    window.onload = moveChatRandomly;
